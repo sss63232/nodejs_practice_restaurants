@@ -8,6 +8,7 @@ const db = mongoose.connection
 db.on('error', console.error.bind(console, 'mongoDB error'))
 db.once('open', () => {
   console.log('mongoDB is connected.')
-  const {results}=restaurantsData
-  results.forEach(result=>Restaurant.create(result))
+  const { results } = restaurantsData
+  results.forEach(result => Restaurant.create(result))
+  console.log('done')
 })
