@@ -38,4 +38,12 @@
                 style="max-width: 600px;">
         </div>
     </div>
+
+    <div class="action my-4 text-center">
+        <a href="/" class="btn btn-primary">back</a>
+        <a href="/restaurants/edit/{{restaurant.id}}" class="btn btn-primary">edit</a>
+        <form action="/restaurants/delete/{{restaurant.id}}" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-outline-danger">delete</button>
+        </form>
+    </div>
 </div>

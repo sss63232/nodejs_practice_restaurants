@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="row">
+        <div class="col-10 col-lg-8 col-xl-6 mx-auto">
+            <div class="card my-5 p-1">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{#if createNew}} Create {{else}} Edit {{/if}} a restaurant
+                        <i class="fas fa-utensils"></i>
+                    </h5>
+                    <hr>
+
+                    {{!-- target path --}}
+                    <form {{#if createNew}} action="/restaurants" {{else}} action="/restaurants/edit/{{restaurant.id}}"
+                        {{/if}} method="POST">
+
+                        <div class="form-group form-row">
+                            <label class="col-sm-3 col-form-label" for="name">
+                                <i class="fas fa-star-of-life required-icon"></i>
+                                名稱：
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" id="name" class="form-control" name="name"
+                                    value="{{restaurant.name}}" placeholder=" 餐廳中文名稱 " required>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-sm-3 col-form-label" for="name_en">
+                                <i class="fas fa-star-of-life not-required-icon"></i>
+                                英文名稱：
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" id="name_en" class="form-control" name="name_en"
+                                    value="{{restaurant.name_en}}" placeholder=" 餐廳英文名稱 ">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-sm-3 col-form-label" for="category">
+                                <i class="fas fa-star-of-life required-icon"></i>
+                                分類：
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" id="category" class="form-control" name="category"
+                                    value="{{restaurant.category}}" placeholder=" 日本料理、中式餐廳 ">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-sm-3 col-form-label" for="rating">
+                                <i class="fas fa-star-of-life not-required-icon"></i>
+                                評分：
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="number" id="rating" class="form-control" name="rating"
+                                    {{#if createNew}}value="0" {{else}} value="{{restaurant.rating}}" {{/if}} min="0"
+                                    max="5" step="0.1">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-sm-3 col-form-label" for="phone">
+                                <i class="fas fa-star-of-life required-icon"></i>
+                                電話：
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="tel" id="phone" class="form-control" name="phone"
+                                    value="{{restaurant.phone}}" placeholder="047867417">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-sm-3 col-form-label" for="location">
+                                <i class="fas fa-star-of-life required-icon"></i>
+                                地址：
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" id="location" class="form-control" name="location"
+                                    value="{{restaurant.location}}" placeholder=" 新北市永和區中正路...">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-sm-3 col-form-label" for="description">
+                                <i class="fas fa-star-of-life required-icon"></i>
+                                餐廳介紹：
+                            </label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="description" id=" description" cols="60" rows="6"
+                                    placeholder=" 簡單介紹一下餐廳吧...">{{restaurant.description}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-sm-3 col-form-label" for="google_map">
+                                <i class="fas fa-star-of-life not-required-icon"></i>
+                                GoogleMap：
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="url" id="google_map" class="form-control" name="google_map"
+                                    value="{{restaurant.google_map}}" placeholder="https://goo.gl/maps/...">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <label class="col-sm-3 col-form-label" for="image">
+                                <i class="fas fa-star-of-life not-required-icon"></i>
+                                餐廳圖片：
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="url" id="image" class="form-control" name="image"
+                                    value="{{restaurant.image}}" placeholder="https://.../photo.jpg">
+                            </div>
+                        </div>
+
+                        <div class="action text-right">
+                            <a href="/" class="btn btn btn-primary"> back </a>
+                            <button class="btn btn-success" type="submit">
+                                {{#if createNew}}
+                                create
+                                {{else}}
+                                submit
+                                {{/if}}
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
